@@ -1,5 +1,6 @@
-package com.javangon.xong;
+package com.javangon.xong.task;
 
+import com.javangon.xong.web.User;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;

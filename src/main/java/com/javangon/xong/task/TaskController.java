@@ -1,5 +1,7 @@
-package com.javangon.xong;
+package com.javangon.xong.task;
 
+import com.javangon.xong.web.User;
+import com.javangon.xong.web.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -7,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Collection;
-import java.util.UUID;
 
 @RestController
 public class TaskController {
@@ -21,9 +22,9 @@ public class TaskController {
         this.taskService = taskService;
     }
 
-    @RequestMapping(value = "/tasks/{userId}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Collection<Task> helloWorld(@PathVariable UUID userId) {
-        User user = userService.getUserById(userId);
+    @RequestMapping(value = "/user/{username}/tasks", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Collection<Task> helloWorld(@PathVariable String username) {
+        User user = userService.getUserByUsername(username);
         return taskService.getAllTasks(user);
     }
 }

@@ -1,4 +1,4 @@
-package com.javangon.xong;
+package com.javangon.xong.task;
 
 import java.util.UUID;
 
